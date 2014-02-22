@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "Alternar visibilidade",
+  "version": "1.0",
+  "description": "Alterna a visibilidade de imagens na linha do tempo do Twitter.",
+  "browser_action": {
+    "name": "Alternar visibilidade",
+    "icons": ["Twitter_logo_blue.png"],
+    "default_icon": "Twitter_logo_blue.png",
+	"default_popup": "popup.html"
+  },
+  "content_scripts": [ {
+    "js": [ "jquery-2.1.0.min.js", "popup.js" ],
+    "matches": [ "*://twitter.com/"],
+	"run_at": "document_end"
+  }],
+  "background": {
+    "scripts": [ "jquery-2.1.0.min.js", "background.js"],
+    "persistent": false
+  },
+  "permissions": ["background", "tabs", "https://twitter.com/", "http://twitter.com/"]
+}
